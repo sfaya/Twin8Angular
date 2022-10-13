@@ -7,6 +7,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { UsersListComponent } from './users-list/users-list.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +18,15 @@ import { UsersListComponent } from './users-list/users-list.component';
     HeaderComponent,
     FooterComponent,
     ProductsListComponent,
-    UsersListComponent
+    UsersListComponent,
+    UpdateUserComponent,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
