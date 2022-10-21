@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../Models/user';
+import { User } from '../../Models/user';
 
 @Component({
   selector: 'app-users-list',
@@ -41,7 +41,7 @@ birthDate: "1999-06-30",
 accountCategory: "Customer",
 email: "marlon@brando.com",
 password: "test",
-picture: "https://bootdey.com/img/Content/avatar/avatar1.png", 
+picture: "https://bootdey.com/img/Content/avatar/avatar1.png",
 profession: "Software Engineer"
 },
 {
