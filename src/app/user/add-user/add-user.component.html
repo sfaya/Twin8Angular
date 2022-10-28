@@ -12,7 +12,16 @@
   <div class="form-group">
     <label for="fn">First Name</label>
     <input type="text" class="form-control" id="fn" formControlName="firstName">
-    <small class="form-text text-muted">Error controls</small>
+    <small style="color: red;"
+      *ngIf="firstName?.errors?.['required'] &&
+      firstName?.touched">
+      First is required
+    </small>
+    <small style="color: red;"
+      *ngIf="firstName?.errors?.['minlength'] &&
+      firstName?.touched">
+      FirstName at least 3 caracters
+    </small>
   </div>
 
 

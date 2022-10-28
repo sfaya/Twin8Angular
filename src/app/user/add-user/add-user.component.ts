@@ -10,11 +10,11 @@ import { User } from 'src/app/Models/user';
 export class AddUserComponent implements OnInit {
 
 reactiveForm = new FormGroup({
-firstName: new FormControl(''),
+firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
 lastName: new FormControl(''),
 credentials: new FormGroup({
-  email: new FormControl(''),
-  password: new FormControl('')
+  email: new FormControl('', Validators.email),
+  password: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9]{8,}?')])
 })
 
 });
@@ -30,4 +30,8 @@ credentials: new FormGroup({
 
   }
 
+
+  get firstName(){
+    return this.reactiveForm.get('firstName');
+  }
 }
