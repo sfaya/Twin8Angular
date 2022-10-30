@@ -43,13 +43,15 @@ skills: this.fb.array([])
 
   addSkills( ){
 
-     this.skills.push(new FormControl(Validators.required));
+     this.skills.push(new FormControl('',Validators.required));
   }
 
 
   get firstName(){
     return this.reactiveForm.get('firstName');
   }
+
+  
 
   get skills(){
     return this.reactiveForm.get('skills') as FormArray
