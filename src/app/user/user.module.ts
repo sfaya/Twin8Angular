@@ -6,6 +6,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddUserComponent } from './add-user/add-user.component';
+import { UserServiceService } from '../Core/Services/user-service.service';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { AddUserComponent } from './add-user/add-user.component';
     UsersListComponent,
     AddUserComponent
   ],
+  providers:[UserServiceService],
   imports: [
     CommonModule,
     UserRoutingModule,

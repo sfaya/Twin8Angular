@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { User } from 'src/app/Models/user';
+import { User } from 'src/app/Core/Models/user';
+import { UserServiceService } from 'src/app/Core/Services/user-service.service';
 
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css']
+  styleUrls: ['./add-user.component.css'],
+  providers: [UserServiceService]
 })
 export class AddUserComponent implements OnInit {
 
@@ -31,14 +33,31 @@ skills: this.fb.array([])
 
 
 
-  constructor(private fb:FormBuilder) { }
+
+  constructor(private fb:FormBuilder, private userS: UserServiceService) { }
 
   ngOnInit(): void {
+    //this.usersList.push(
 
+//         {
+// idCustomer: 2,
+//  firstName: "George",
+//  lastName: "Clooney",
+// birthDate: "1999-06-30",
+//  accountCategory: "Customer",
+//  email: "marlon@brando.com",
+//  password: "test",
+//  picture: "https://bootdey.com/img/Content/avatar/avatar2.png",
+//  profession: "Software Engineer"
+//  }
+//     )
   }
 
   Save(){
     console.log(this.reactiveForm);
+    let user = this.reactiveForm.getRawValue();
+    console.log("user = ", user);
+
   }
 
   addSkills( ){
@@ -51,7 +70,7 @@ skills: this.fb.array([])
     return this.reactiveForm.get('firstName');
   }
 
-  
+
 
   get skills(){
     return this.reactiveForm.get('skills') as FormArray

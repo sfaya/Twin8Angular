@@ -20,7 +20,7 @@
                 <th>serach <input type="search" [(ngModel)]="filter"></th>
               </tr>
             </thead>
-            <tbody *ngFor="let user of usersList">
+            <tbody *ngFor="let user of listUsers">
 
               <tr *ngIf="user.accountCategory === filter || !filter">
                 <td>
