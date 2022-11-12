@@ -15,17 +15,30 @@ id= 5;
 filter!:string;
 
   constructor( private route:Router, private userS: UserServiceService) { }
-listUsers:User[] = [];
+
+  listUsers:User[] = [];
+
   ngOnInit(): void {
-    this.listUsers= this.userS.getAllUsers();
-   }
-
-  goToAdmin(){
-    this.route.navigate(['users/Admin']);
-
+      this.getUsers();
+      //let nbr =  this.userS.fetchNbInList(this.listUsers, "accountCategory", "Customer");
   }
 
-  deleteUser(user:User){
-this.userS.delete(user);
+   getUsers(){
+    this.userS.getAllUsers().subscribe(data => this.listUsers=data);
+   }
+
+deleteUser(id:any){
+   this.userS.deleteUser(id).subscribe(
+        () => this.getUsers()
+   )
+}
+
+
+
+
+
+
+goToAdmin(){
+    this.route.navigate(['users/Admin']);
   }
 }

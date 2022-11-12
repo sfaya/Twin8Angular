@@ -1,15 +1,16 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ɵAPP_ID_RANDOM_PROVIDER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { UserServiceService } from './Core/Services/user-service.service';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserServiceService } from './Core/Services/user-service.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
