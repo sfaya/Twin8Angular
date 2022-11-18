@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/Core/Services/user-service.service';
+import { User7Service } from 'src/app/Core/Services/user7.service';
 import { User } from '../../Core/Models/user';
 
 @Component({
@@ -14,28 +15,22 @@ id= 5;
 // La variable permetant de récupérer la valeur de recherche
 filter!:string;
 
-  constructor( private route:Router, private userS: UserServiceService) { }
+  constructor( private route:Router, private userS: UserServiceService, private user7: User7Service) { }
 
   listUsers:User[] = [];
 
   ngOnInit(): void {
-      this.getUsers();
-      //let nbr =  this.userS.fetchNbInList(this.listUsers, "accountCategory", "Customer");
-  }
+        this.getUsers();
+      }
 
    getUsers(){
-    this.userS.getAllUsers().subscribe(data => this.listUsers=data);
+    this.user7.getAllUsers().subscribe(data => this.listUsers= data);
    }
 
-deleteUser(id:any){
-   this.userS.deleteUser(id).subscribe(
-        () => this.getUsers()
-   )
+
+deleteUser7(id:any){
+  this.user7.deleteUser(Number(id)).subscribe( () =>this.getUsers() );
 }
-
-
-
-
 
 
 goToAdmin(){

@@ -33,9 +33,7 @@ usersList: User[]= [];
     const ID = Number(u.id);
     console.log(ID);
 
-return this.http.put(this.url+'/'+2, u);
-//if you sent url of users you loose all data :D !!!
-
+     return this.http.put(this.url+'/'+ID, u);
   }
 
 
